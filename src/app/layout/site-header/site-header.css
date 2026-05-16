@@ -1,0 +1,174 @@
+.site-header {
+  position: fixed;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+
+  z-index: 1000;
+
+  padding: 1.25rem 2rem;
+
+  box-sizing: border-box;
+
+  background: transparent;
+}
+
+.header-inner {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  max-width: 1800px;
+
+  margin: 0 auto;
+}
+
+/* LOGO */
+
+.logo-section {
+  width: 360px;
+  height: 120px;
+
+  background-image: url('../../../assets/tww-logo-trans.png');
+
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: contain;
+
+  filter:
+    drop-shadow(0 0 10px rgba(0, 0, 0, 0.45));
+}
+
+/* NAVIGATION */
+
+.main-nav {
+  display: flex;
+  align-items: flex-start;
+
+  gap: 3rem;
+
+  padding-top: 1rem;
+}
+
+.main-nav a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  position: relative;
+
+  color: #f4ead7;
+
+  text-decoration: none;
+
+  font-family: 'Cinzel', serif;
+
+  font-size: 0.95rem;
+  font-weight: 500;
+
+  letter-spacing: 0.08em;
+
+  text-transform: uppercase;
+
+  transition:
+    color 0.25s ease,
+    text-shadow 0.25s ease;
+}
+
+.main-nav a:hover {
+  color: #c2d97a;
+
+  text-shadow:
+    0 0 10px rgba(183, 207, 114, 0.18);
+}
+
+/* DIVIDER LINE */
+
+.nav-divider {
+  position: relative;
+
+  margin-top: 0.65rem;
+
+  width: 115%;
+  height: 1px;
+
+  background:
+    linear-gradient(
+      to right,
+      transparent,
+      rgba(183, 207, 114, 0.75),
+      transparent
+    );
+
+  opacity: 0.65;
+
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+}
+
+.main-nav a:hover .nav-divider {
+  opacity: 1;
+
+  transform: scaleX(1.08);
+}
+
+/* FLOURISH */
+
+.nav-divider::after {
+  content: "✦";
+
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+
+  padding: 0 0.35rem;
+
+  background: rgba(8, 8, 8, 0.72);
+
+  color: #b7cf72;
+
+  font-size: 0.72rem;
+
+  line-height: 1;
+
+  text-shadow:
+    0 0 8px rgba(183, 207, 114, 0.25);
+}
+
+.main-nav a.active {
+  color: #d5e89a;
+
+  text-shadow:
+    0 0 10px rgba(183, 207, 114, 0.22),
+    0 0 18px rgba(183, 207, 114, 0.12);
+}
+
+.main-nav a.active .nav-divider {
+  opacity: 1;
+
+  transform: scaleX(1.08);
+
+  background:
+    linear-gradient(
+      to right,
+      transparent,
+      rgba(213, 232, 154, 0.95),
+      transparent
+    );
+
+  box-shadow:
+    0 0 10px rgba(183, 207, 114, 0.22);
+}
+
+.main-nav a.active .nav-divider::after {
+  color: #d5e89a;
+
+  text-shadow:
+    0 0 10px rgba(213, 232, 154, 0.35);
+}
