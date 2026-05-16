@@ -39,9 +39,11 @@
   color: #f4ead7;
 
   text-shadow:
-    0 0 10px rgba(0, 0, 0, 0.45),
-    0 0 30px rgba(0, 0, 0, 0.25),
-    0 4px 18px rgba(0, 0, 0, 0.65);
+  0 0 2px rgba(157, 189, 91, 0.18),
+  0 0 6px rgba(157, 189, 91, 0.12),
+  0 0 10px rgba(0, 0, 0, 0.55),
+  0 0 28px rgba(0, 0, 0, 0.28),
+  0 4px 18px rgba(0, 0, 0, 0.65);
 }
 
 .hero-title span {
@@ -49,11 +51,12 @@
 }
 
 .hero-title .accent {
-  color: #8fae57;
+  color: #b7cf72;
 
   text-shadow:
-    0 0 12px rgba(143, 174, 87, 0.18),
-    0 0 26px rgba(143, 174, 87, 0.08),
+    0 0 2px rgba(209, 232, 129, 0.18),
+    0 0 8px rgba(157, 189, 91, 0.25),
+    0 0 18px rgba(157, 189, 91, 0.12),
     0 4px 18px rgba(0, 0, 0, 0.65);
 }
 
@@ -62,7 +65,7 @@
 
   max-width: 700px;
 
-  font-size: 1.15rem;
+  font-size: 1.5rem;
   line-height: 1.8;
 
   color: rgba(244, 234, 215, 0.92);
@@ -76,43 +79,161 @@
   align-items: center;
   justify-content: center;
 
-  gap: 1rem;
+  gap: 1.2rem;
 
-  margin: 1.5rem auto 2rem;
+  margin: 1.75rem auto 2.2rem;
 
   width: 100%;
-  max-width: 520px;
+  max-width: 560px;
 }
 
 .hero-divider span {
   flex: 1;
 
-  height: 1px;
+  height: 2px;
 
   background:
     linear-gradient(
       to right,
       transparent,
-      rgba(143, 174, 87, 0.7),
+      rgba(157, 189, 91, 0.95),
       transparent
     );
+
+  box-shadow:
+    0 0 10px rgba(157, 189, 91, 0.22);
 }
 
-.divider-icon {
-  width: 22px;
-  height: 22px;
+.divider-ornament {
+  color: #9dbd5b;
 
-  object-fit: contain;
+  font-size: 2.4rem;
 
-  opacity: 0.9;
+  line-height: 1;
 
-  filter:
-    drop-shadow(0 0 4px rgba(143, 174, 87, 0.35));
+  text-shadow:
+    0 0 8px rgba(157, 189, 91, 0.45),
+    0 0 16px rgba(157, 189, 91, 0.2);
 }
 
 .hero-buttons {
   display: flex;
   justify-content: center;
-  gap: 1rem;
+  gap: 1.25rem;
   flex-wrap: wrap;
+}
+
+.hero-btn {
+  --cut: 14px;
+
+  position: relative;
+  isolation: isolate;
+
+  padding: 0.95rem 2.2rem;
+  min-width: 240px;
+
+  border: none;
+
+  clip-path: polygon(
+    var(--cut) 0,
+    calc(100% - var(--cut)) 0,
+    100% var(--cut),
+    100% calc(100% - var(--cut)),
+    calc(100% - var(--cut)) 100%,
+    var(--cut) 100%,
+    0 calc(100% - var(--cut)),
+    0 var(--cut)
+  );
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(196, 219, 111, 0.95),
+      rgba(64, 78, 34, 0.85) 35%,
+      rgba(15, 17, 14, 0.95) 70%,
+      rgba(209, 232, 129, 0.65)
+    );
+
+  color: #f4ead7;
+
+  font-family: 'Cinzel', serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+
+  cursor: pointer;
+  overflow: hidden;
+
+  box-shadow:
+    0 0 12px rgba(157, 189, 91, 0.16),
+    0 8px 22px rgba(0, 0, 0, 0.42);
+}
+
+.hero-btn::before {
+  content: "";
+  position: absolute;
+  inset: 2px;
+
+  clip-path: inherit;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(37, 55, 22, 0.95),
+      rgba(8, 10, 8, 0.94) 55%,
+      rgba(28, 34, 21, 0.96)
+    );
+
+  z-index: -1;
+}
+
+.hero-btn::after {
+  content: "";
+  position: absolute;
+  inset: 7px;
+
+  clip-path: inherit;
+
+  border: 1px solid rgba(181, 199, 108, 0.35);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.06),
+      transparent 35%,
+      rgba(0, 0, 0, 0.22)
+    );
+
+  pointer-events: none;
+  z-index: -1;
+}
+
+.hero-btn:hover {
+  transform: translateY(-2px);
+
+  border-color: rgba(181, 199, 108, 0.8);
+
+  box-shadow:
+    0 0 14px rgba(181, 199, 108, 0.18),
+    0 8px 24px rgba(0,0,0,0.42);
+}
+
+.primary-btn {
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(112, 145, 42, 0.32),
+      rgba(18, 20, 18, 0.92)
+    );
+
+  border-color: rgba(181, 199, 108, 0.7);
+}
+
+.secondary-btn {
+  background:
+    rgba(12, 13, 12, 0.82);
+
+  border-color:
+    rgba(190, 190, 190, 0.22);
 }
